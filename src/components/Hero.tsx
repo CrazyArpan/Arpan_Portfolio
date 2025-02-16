@@ -10,10 +10,10 @@ export const Hero = () => {
       <div className="text-center max-w-3xl mx-auto stagger-animation">
         <p className="text-primary mb-4 tracking-wide">Welcome to my portfolio</p>
         <h1 className="text-5xl md:text-6xl font-bold mb-6">
-          Hi, I'm <span className="text-primary">Your Name</span>
+          Hi, I'm <span className="text-primary">Arpan Das</span>
         </h1>
         <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8">
-          A passionate developer crafting beautiful digital experiences
+          MCA student and aspiring Web Developer, specializing in Frontend and Backend Development
         </p>
         <div className="flex justify-center gap-4">
           <a
