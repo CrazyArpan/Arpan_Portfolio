@@ -3,13 +3,16 @@ import { ArrowDown } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-3xl animate-spin-slow" />
+      </div>
       <div className="text-center max-w-3xl mx-auto stagger-animation">
         <p className="text-primary mb-4 tracking-wide">Welcome to my portfolio</p>
         <h1 className="text-5xl md:text-6xl font-bold mb-6">
           Hi, I'm <span className="text-primary">Your Name</span>
         </h1>
-        <p className="text-xl md:text-2xl text-gray-600 mb-8">
+        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-8">
           A passionate developer crafting beautiful digital experiences
         </p>
         <div className="flex justify-center gap-4">
