@@ -26,17 +26,21 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#6e59a5",
+          DEFAULT: "#1a1a1a",
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#1a1a1a",
-          foreground: "#f8f9fa",
+          DEFAULT: "#f8f9fa",
+          foreground: "#1a1a1a",
         },
         accent: {
-          DEFAULT: "#e5deff",
-          foreground: "#6e59a5",
+          DEFAULT: "#e5e5e5",
+          foreground: "#1a1a1a",
         },
+        muted: {
+          DEFAULT: "#f6f6f6",
+          foreground: "#666666",
+        }
       },
       keyframes: {
         "fade-up": {
@@ -57,26 +61,10 @@ export default {
             opacity: "1",
           },
         },
-        "slide-in": {
-          "0%": {
-            transform: "translateX(-100%)",
-            opacity: "0",
-          },
-          "100%": {
-            transform: "translateX(0)",
-            opacity: "1",
-          },
-        },
-        rotate: {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" },
-        },
       },
       animation: {
-        "fade-up": "fade-up 0.5s ease-out forwards",
-        "fade-in": "fade-in 0.5s ease-out forwards",
-        "slide-in": "slide-in 0.5s ease-out forwards",
-        "spin-slow": "rotate 15s linear infinite",
+        "fade-up": "fade-up 0.8s ease-out forwards",
+        "fade-in": "fade-in 0.8s ease-out forwards",
       },
     },
   },
