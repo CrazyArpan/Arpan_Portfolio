@@ -1,6 +1,66 @@
+
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { useToast } from '@/components/ui/use-toast';
 
 export const Contact = () => {
+  const { toast } = useToast();
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      await emailjs.send(
+        'service_q8zaw5p', // Your EmailJS service ID
+        'template_3jj92gn', // Your EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'arpandas.rs2001@gmail.com',
+        },
+        'Qz-mM5c_SNkK3FGvp' // Your EmailJS public key
+      );
+
+      toast({
+        title: "Success!",
+        description: "Your message has been sent successfully.",
+        duration: 5000,
+      });
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        message: ''
+      });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+        duration: 5000,
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.id]: e.target.value
+    }));
+  };
+
   return (
     <section id="contact" className="py-32 px-4">
       <div className="text-center">
@@ -27,14 +87,12 @@ export const Contact = () => {
           <Phone className="w-10 h-10 text-primary mb-4" />
           <h3 className="font-semibold text-lg mb-2">Phone</h3>
           <p className="text-foreground/80">+91 8917389798</p>
-          {/* You can add a link to call the number if needed */}
         </div>
 
         <div className="glass-card p-6 flex flex-col items-center justify-center">
           <MapPin className="w-10 h-10 text-primary mb-4" />
           <h3 className="font-semibold text-lg mb-2">Location</h3>
           <p className="text-foreground/80">Kolkata, India</p>
-          {/* You can add a link to a map if needed */}
         </div>
       </div>
 
@@ -42,7 +100,7 @@ export const Contact = () => {
         <h3 className="text-xl font-semibold mb-4 text-center">
           Or, send me a message directly:
         </h3>
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="name" className="block text-sm font-medium">
               Name
@@ -50,7 +108,10 @@ export const Contact = () => {
             <input
               type="text"
               id="name"
-              className="mt-1 p-2 w-full rounded-md bg-secondary/50 border border-white/10 text-foreground"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="mt-1 p-2 w-full rounded-md bg-secondary/50 border border-white/10 text-foreground focus:border-primary focus:ring-1 focus:ring-primary transition-all"
               placeholder="Your Name"
             />
           </div>
@@ -61,7 +122,10 @@ export const Contact = () => {
             <input
               type="email"
               id="email"
-              className="mt-1 p-2 w-full rounded-md bg-secondary/50 border border-white/10 text-foreground"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="mt-1 p-2 w-full rounded-md bg-secondary/50 border border-white/10 text-foreground focus:border-primary focus:ring-1 focus:ring-primary transition-all"
               placeholder="Your Email"
             />
           </div>
@@ -72,15 +136,19 @@ export const Contact = () => {
             <textarea
               id="message"
               rows={4}
-              className="mt-1 p-2 w-full rounded-md bg-secondary/50 border border-white/10 text-foreground"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="mt-1 p-2 w-full rounded-md bg-secondary/50 border border-white/10 text-foreground focus:border-primary focus:ring-1 focus:ring-primary transition-all"
               placeholder="Your Message"
             />
           </div>
           <button
             type="submit"
-            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300"
+            disabled={loading}
+            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>
