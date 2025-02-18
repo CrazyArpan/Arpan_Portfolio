@@ -5,15 +5,31 @@ import { Menu, X } from 'lucide-react';
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Handle section highlighting
+      const sections = ['about', 'projects', 'experience', 'contact'];
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+
+      setActiveSection(currentSection || '');
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const navItems = ['About', 'Projects', 'Experience', 'Contact'];
 
   return (
     <nav 
@@ -37,11 +53,13 @@ export const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
+            {navItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="nav-link text-sm uppercase tracking-wider font-medium"
+                className={`nav-link text-sm uppercase tracking-wider font-medium ${
+                  activeSection === item.toLowerCase() ? 'active-nav-link' : ''
+                }`}
               >
                 {item}
               </a>
@@ -71,11 +89,13 @@ export const Navbar = () => {
           }`}
         >
           <div className="flex flex-col gap-4 pb-6">
-            {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
+            {navItems.map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="nav-link text-sm uppercase tracking-wider font-medium"
+                className={`nav-link text-sm uppercase tracking-wider font-medium ${
+                  activeSection === item.toLowerCase() ? 'active-nav-link' : ''
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item}

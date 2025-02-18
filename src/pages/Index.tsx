@@ -10,11 +10,13 @@ const Index = () => {
   return (
     <main className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-secondary via-background to-background">
       <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Experience />
-      <Contact />
+      <div className="space-y-32">
+        <Hero />
+        <About />
+        <Projects />
+        <Experience />
+        <Contact />
+      </div>
     </main>
   );
 };
