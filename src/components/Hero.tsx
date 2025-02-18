@@ -45,7 +45,7 @@ export const Hero = () => {
             Get in Touch
           </a>
           <a
-            href="/path/to/your/resume.pdf" 
+            href="ARPAN_DAS.pdf" 
             className="px-8 py-4 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[200px] flex items-center justify-center gap-2 hover:scale-105"
             download 
           >
