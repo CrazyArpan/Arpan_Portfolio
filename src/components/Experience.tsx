@@ -5,9 +5,9 @@ export const Experience = () => {
   const experiences = [
     {
       title: "ReactJs Trainee",
-      company: "WEBGURU Infosystem Training Program",
-      period: "November 2024 - February 2025",
-      location: "Kolkata, India",
+      company: <p className="text-white">WEBGURU Infosystem Training Program</p>,
+      period: <p className="text-white">November 2024 - February 2025</p>, 
+      location: <p className="text-white">Kolkata, India</p>,
       description: [
         "Developed interactive and responsive web applications using React.js and Tailwind CSS",
         "Built reusable components and managed application state with Redux and Context API",
@@ -20,17 +20,17 @@ export const Experience = () => {
   const education = [
     {
       school: "Brainware University",
-      degree: "Master of Computer Applications (MCA)",
-      period: "August 2022 - July 2023",
-      location: "Barasat, India",
-      grade: "Marks: 79.45%",
+      degree: <p className="text-white">Master of Computer Applications (MCA)</p>,
+      period: <p className="text-white">August 2023 - July 2025</p>,
+      location: <p className="text-white">Barasat, India</p>,
+      grade: <p className="text-white">Marks: 79.45%</p>,
     },
     {
-      school: "Burdwan Institute of Management and Computer Science",
-      degree: "Bachelor of Computer Applications (BCA)",
-      period: "August 2020 - August 2023",
-      location: "Burdwan, India",
-      grade: "Marks: 76.97%",
+      school: "Burdwan Institute of Management & Computer Science",
+      degree: <p className="text-white">Bachelor of Computer Applications (BCA)</p>,
+      period: <p className="text-white">August 2020 - August 2023</p>,
+      location: <p className="text-white">Burdwan, India</p>,
+      grade: <p className="text-white">Marks: 76.97%</p>,
     },
   ];
 

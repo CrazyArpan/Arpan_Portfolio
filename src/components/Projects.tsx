@@ -6,26 +6,26 @@ export const Projects = () => {
     {
       title: "E-Commerce Platform",
       description: "Full-stack e-commerce platform with React, Node.js, and MongoDB",
-      tech: ["React", "Node.js", "MongoDB", "Express"],
-      github: "#",
-      demo: "#",
-      image: "/placeholder.svg"
+      tech: ["Next.js", "Node.js", "MongoDB", "Express"],
+      github: "https://github.com/CrazyArpan/SwiftCart",
+      demo: "https://swift-cart-3mmq.vercel.app/",
+      image: "swiftcart.png"
     },
     {
-      title: "Task Management App",
-      description: "Real-time task management application with authentication",
-      tech: ["Next.js", "TypeScript", "Prisma", "tRPC"],
-      github: "#",
-      demo: "#",
-      image: "/placeholder.svg"
+      title: "Tech Quiz App",
+      description: "An application to take quizes based on programming languages",
+      tech: ["Next.js", "TypeScript"],
+      github: "https://github.com/CrazyArpan/Tech-Quizß",
+      demo: "",
+      image: "tquiz.png"
     },
     {
       title: "Weather Dashboard",
       description: "Weather forecast application with OpenWeather API integration",
-      tech: ["React", "TailwindCSS", "REST API"],
-      github: "#",
-      demo: "#",
-      image: "/placeholder.svg"
+      tech: ["Next.js", "TailwindCSS", "REST API"],
+      github: "https://github.com/CrazyArpan/weather",
+      demo: "https://weather-tau-virid.vercel.app/",
+      image: "/weather.png"
     }
   ];
 
@@ -33,7 +33,7 @@ export const Projects = () => {
     <section id="projects" className="py-32 px-4">
       <div className="container mx-auto">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">Featured Projects</h2>
-        <p className="text-muted-foreground text-lg md:text-xl text-center mb-16 max-w-2xl mx-auto">
+        <p className="text-muted-foreground text-lg md:text-xl text-center mb-16 max-w-2xl mx-auto text-white">
           A collection of projects that showcase my skills and experience
         </p>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

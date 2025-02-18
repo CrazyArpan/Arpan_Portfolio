@@ -1,5 +1,4 @@
-
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react"; // Import the Download icon
 import { useEffect, useRef } from "react";
 
 export const Hero = () => {
@@ -27,12 +26,12 @@ export const Hero = () => {
       <div className="text-center max-w-4xl mx-auto stagger-animation relative">
         <span className="text-primary text-lg md:text-xl mb-6 block font-medium">Welcome to my portfolio</span>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8">
-          Hi, I'm <span ref={nameRef} className="text-primary">Arpan Das</span>
+          Hi, I'm <span ref={nameRef} className="text-primary text-white">Arpan</span>
         </h1>
         <p className="text-xl md:text-2xl text-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
           MCA student and aspiring Web Developer, specializing in Frontend and Backend Development
         </p>
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-4"> 
           <a
             href="#projects"
             className="px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 min-w-[200px] hover:scale-105"
@@ -45,8 +44,16 @@ export const Hero = () => {
           >
             Get in Touch
           </a>
+          <a
+            href="/path/to/your/resume.pdf" 
+            className="px-8 py-4 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/90 transition-all duration-300 min-w-[200px] flex items-center justify-center gap-2 hover:scale-105"
+            download 
+          >
+            <Download className="w-4 h-4" /> 
+            Download Resume
+          </a>
         </div>
-      </div>
+      </div><br/><br/><br/>
       <a
         href="#about"
         className="absolute bottom-12 animate-bounce cursor-pointer hover:text-primary transition-colors"

@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -11,13 +10,11 @@ export const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Handle section highlighting
       const sections = ['about', 'projects', 'experience', 'contact'];
       const currentSection = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Adjusted threshold for better detection at the bottom of the page
           const threshold = window.innerHeight * 0.3;
           return rect.top <= threshold && rect.bottom >= 0;
         }
@@ -35,11 +32,11 @@ export const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'py-4 bg-background/80 backdrop-blur-md shadow-lg border-b border-white/10' 
-          : 'py-6'
-      }`}
+    className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'py-4 bg-background backdrop-blur-md shadow-lg border-b border-white/10' 
+        : 'py-6'
+    }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
@@ -53,7 +50,6 @@ export const Navbar = () => {
             <span className="absolute -inset-1 rounded-lg group-hover:bg-primary/20 transition-all duration-300" />
           </a>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <a
@@ -68,7 +64,6 @@ export const Navbar = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-foreground/70 hover:text-foreground transition-colors"
@@ -82,7 +77,6 @@ export const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         <div
           className={`md:hidden transition-all duration-300 ${
             isOpen
@@ -90,7 +84,7 @@ export const Navbar = () => {
               : 'max-h-0 opacity-0 pointer-events-none'
           }`}
         >
-          <div className="flex flex-col gap-4 pb-6">
+          <div className="flex flex-col gap-4 pb -6">
             {navItems.map((item) => (
               <a
                 key={item}

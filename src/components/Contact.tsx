@@ -1,5 +1,4 @@
-
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, MapPin, Github } from 'lucide-react';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { useToast } from '@/components/ui/use-toast';
@@ -19,15 +18,15 @@ export const Contact = () => {
 
     try {
       await emailjs.send(
-        'service_q8zaw5p', // Your EmailJS service ID
-        'template_3jj92gn', // Your EmailJS template ID
+        'service_dthfr8k', // Your EmailJS service ID
+        'template_wglgtfk', // Your EmailJS template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
-          to_email: 'arpandas.rs2001@gmail.com',
+          to_email: 'pritamda.678@gmail.com',
         },
-        'Qz-mM5c_SNkK3FGvp' // Your EmailJS public key
+        'gk8c6UeFIreq7-rPw' // Your EmailJS public key
       );
 
       toast({
@@ -74,9 +73,9 @@ export const Contact = () => {
         <div className="glass-card p-6 flex flex-col items-center justify-center">
           <Mail className="w-10 h-10 text-primary mb-4" />
           <h3 className="font-semibold text-lg mb-2">Email</h3>
-          <p className="text-foreground/80">arpandas.rs2001@gmail.com</p>
+          <p className="text-foreground/80">arpabdas02@gmail.com</p>
           <a
-            href="mailto:arpandas.rs2001@gmail.com"
+            href="mailto:pritamda.678@gmail.com"
             className="mt-4 text-primary hover:underline"
           >
             Send Email
@@ -84,15 +83,23 @@ export const Contact = () => {
         </div>
 
         <div className="glass-card p-6 flex flex-col items-center justify-center">
-          <Phone className="w-10 h-10 text-primary mb-4" />
-          <h3 className="font-semibold text-lg mb-2">Phone</h3>
-          <p className="text-foreground/80">+91 8917389798</p>
-        </div>
-
-        <div className="glass-card p-6 flex flex-col items-center justify-center">
           <MapPin className="w-10 h-10 text-primary mb-4" />
           <h3 className="font-semibold text-lg mb-2">Location</h3>
           <p className="text-foreground/80">Kolkata, India</p>
+        </div>
+
+        <div className="glass-card p-6 flex flex-col items-center justify-center">
+          <Github className="w-10 h-10 text-primary mb-4" />
+          <h3 className="font-semibold text-lg mb-2">GitHub</h3>
+          <p className="text-foreground/80">Check my projects</p>
+          <a
+            href="https://github.com/CrazyArpan"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 text-primary hover:underline"
+          >
+            View Profile
+          </a>
         </div>
       </div>
 
@@ -146,7 +153,7 @@ export const Contact = () => {
           <button
             type="submit"
             disabled={loading}
-            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 py-3 bg-primary text-primary-foreground rounded-xl hover:bg-primary/90 hover:scale-105 hover:shadow-md transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
