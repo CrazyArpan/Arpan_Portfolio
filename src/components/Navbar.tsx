@@ -17,7 +17,9 @@ export const Navbar = () => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          // Adjusted threshold for better detection at the bottom of the page
+          const threshold = window.innerHeight * 0.3;
+          return rect.top <= threshold && rect.bottom >= 0;
         }
         return false;
       });
