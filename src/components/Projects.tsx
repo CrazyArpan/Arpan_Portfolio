@@ -16,7 +16,7 @@ export const Projects = () => {
       description: "An application to take quizes based on programming languages",
       tech: ["Next.js", "TypeScript"],
       github: "https://github.com/CrazyArpan/Tech-Quizß",
-      demo: "",
+      demo: "https://tech-quiz-rho.vercel.app/",
       image: "tquiz.png"
     },
     {
